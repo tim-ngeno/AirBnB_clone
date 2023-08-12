@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """Emptyline + ENTER does nothing"""
+        """Emptyline and ENTER does nothing"""
         pass
 
 
