@@ -66,6 +66,24 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print(storage.all()[keys])
 
+    def do_all(self, line):
+        """ Prints string representation of all instances"""
+        my_list = []
+
+        if line:
+            line = line.split(' ')[0]
+            if line not in HBNBCommand.classes:
+                print("** class doesn't exist **")
+                return
+            for k, v in storage._FileStorage__objects.items():
+                if k.split('.')[0] == line:
+                    print_list.append(str(v))
+        else:
+            for k, v in storage._FileStorage__objects.items():
+                print_list.append(str(v))
+
+        print(my_list)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
