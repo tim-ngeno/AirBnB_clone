@@ -11,14 +11,14 @@ class HBNBCommand(cmd.Cmd):
         """Exit the command interpretor"""
         return True
 
-    def emptyline(self):
-        """Emptyline + ENTER does nothing"""
-        pass
-
     def do_EOF(self, arg):
         """End of file"""
         print()
         return True
+
+    def emptyline(self):
+        """Emptyline + ENTER does nothing"""
+        pass
 
 
 if __name__ == '__main__':
