@@ -6,7 +6,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    def do_quit(self, line):
+    def do_quit(self, arg):
         """Exit the command interpretor"""
         return True
 
@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
         """Emptyline + ENTER does nothing"""
         pass
 
-    def do_EOF(self, line):
+    def do_EOF(self, arg):
         """End of file"""
         print()
         return True
