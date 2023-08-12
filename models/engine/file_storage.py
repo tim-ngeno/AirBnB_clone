@@ -17,7 +17,7 @@ DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
 
 class FileStorage:
     """
-    Defines a class FileStorage that serializes/deserializes instances to/from JSON.
+    Class FileStorage that serializes/deserializes instances to/from JSON.
 
     Attributes:
         __file_path (str): Path to the JSON file.
@@ -34,7 +34,7 @@ class FileStorage:
 
     def new(self, obj):
         """
-        Adds a new obj to the __objects dictionary with key <obj class name>.id.
+        Adds new obj to the __objects dictionary with key <obj class name>.id.
 
         Args:
             obj: The object instance to be added.
