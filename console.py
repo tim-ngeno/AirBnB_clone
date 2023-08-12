@@ -10,9 +10,9 @@ class HBNBCommand(cmd.Cmd):
         """Exit the command interpretor"""
         return True
 
-    #def emptyline(self):
-        #"""Emptyline + ENTER does nothing"""
-        #pass
+    def emptyline(self):
+        """Emptyline + ENTER does nothing"""
+        pass
 
     def do_EOF(self, line):
         """End of file"""
