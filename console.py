@@ -9,6 +9,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -95,12 +96,52 @@ class HBNBCommand(cmd.Cmd):
                 return
             for k, v in storage._FileStorage__objects.items():
                 if k.split('.')[0] == line:
-                    print_list.append(str(v))
+                    my_list.append(str(v))
         else:
             for k, v in storage._FileStorage__objects.items():
-                print_list.append(str(v))
+                my_list.append(str(v))
 
         print(my_list)
+
+    def do_update(self, line):
+        """
+         Updates an instance based on the class name and id by adding or
+         updating attribute (saves the change into JSON file)"""
+        instance = shlex.split(line)
+        my_integers = ["number_rooms", "number_bathrooms", "max_guest",
+                    "price_by_night"]
+        my_floats = ["latitude", "longitude"]
+        if len(instance) == 0:
+            print("** class name missing **")
+        elif instance[0] in HBNBCommand.classes:
+            if len(instance) > 1:
+                k = instance[0] + "." + instance[1]
+                if k in storage.all():
+                    if len(instance) > 2:
+                        if len(instance) > 3:
+                            if instance[0] == "Place":
+                                if instance[2] in my_integers:
+                                    try:
+                                        instance[3] = int(instance[3])
+                                    except ValueError:
+                                        instance[3] = 0
+                                elif instance[2] in my_floats:
+                                    try:
+                                        instance[3] = float(instance[3])
+                                    except ValueError:
+                                        instance[3] = 0.0
+                            setattr(storage.all()[k], instance[2], instance[3])
+                            storage.all()[k].save()
+                        else:
+                            print("** value missing **")
+                    else:
+                        print("** attribute name missing **")
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
