@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
          updating attribute (saves the change into JSON file)"""
         instance = shlex.split(line)
         my_integers = ["number_rooms", "number_bathrooms", "max_guest",
-                    "price_by_night"]
+                       "price_by_night"]
         my_floats = ["latitude", "longitude"]
         if len(instance) == 0:
             print("** class name missing **")
