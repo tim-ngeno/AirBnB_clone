@@ -1,8 +1,16 @@
 #!/usr/bin/python3
-"""subclass state module"""
+"""
+State Module
+"""
+
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """ Inherits from BaseModel"""
+    """
+    State class inherits from BaseModel
+
+    Attributes:
+        name (str): State name.
+    """
     name = ""
