@@ -27,6 +27,31 @@ class TestUser(unittest.TestCase):
         user2 = User()
         self.assertNotEqual(user1.id, user2.id)
 
+    def test_instance_with_id_kwargs(self):
+        """Test instance creation with id"""
+        u = User(id="12345")
+        self.assertEqual(u.id, "12345")
+
+    def test_instance_with_email_kwargs(self):
+        """Test instance creation with email"""
+        u = User(email="test@123.com")
+        self.assertEqual(u.email, "test@123.com")
+
+    def test_instance_with_password_kwargs(self):
+        """Test instance creation with password"""
+        u = User(password="abc123")
+        self.assertEqual(u.password, "abc123")
+
+    def test_instance_with_firstname_kwargs(self):
+        """Test instance creation with first name"""
+        u = User(first_name="Jane")
+        self.assertEqual(u.first_name, "Jane")
+
+    def test_instance_with_lastname_kwargs(self):
+        """Test instance creation with last name"""
+        u = User(last_name="Doe")
+        self.assertEqual(u.last_name, "Doe")
+
     def test_user_instance_storage(self):
         """Test storage of user instance attributes"""
         self.assertIn(User(), models.storage.all().values())
@@ -47,7 +72,7 @@ class TestUser(unittest.TestCase):
         """Test user last name type"""
         self.assertIsInstance(User().last_name, str)
 
-    def test_instace_created_at(self):
+    def test_instance_created_at(self):
         """Test user instance creation timestamp"""
         self.assertEqual(datetime, type(User().created_at))
 
