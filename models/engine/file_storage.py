@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 """FileStorage module"""
 
@@ -62,9 +63,5 @@ class FileStorage:
                 for key, value in obj.items():
                     class_name = value["__class__"]
                     del value["__class__"]
-                    # value['created_at'] = datetime.strptime(
-                    #     value['created_at'], DATE_FORMAT)
-                    # value['updated_at'] = datetime.strptime(
-                    #     value['updated_at'], DATE_FORMAT)
                     data = eval(class_name + "(**value)")
                     self.__objects[key] = data
