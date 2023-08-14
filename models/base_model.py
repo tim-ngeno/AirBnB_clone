@@ -45,16 +45,14 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """
-        Updates the instance's updated_at attribute and saves
+        """Updates the instance's updated_at attribute and saves
         the changes to storage.
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """
-        Converts the instance into a dictionary representation.
+        """Converts the instance into a dictionary representation.
 
         Returns:
             dict: contains the instance attributes and class name.
@@ -66,8 +64,7 @@ class BaseModel:
         return my_dict
 
     def __str__(self):
-        """
-        Returns a string representation of the instance.
+        """Returns a string representation of the instance.
         """
         return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, self.__dict__

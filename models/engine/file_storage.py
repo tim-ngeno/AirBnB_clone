@@ -28,14 +28,11 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """
-        Returns the dictionary __objects.
-        """
+        """Returns the dictionary __objects."""
         return self.__objects
 
     def new(self, obj):
-        """
-        Adds new obj to the __objects dictionary with key <obj class name>.id.
+        """Adds new obj to the __objects dictionary with key <obj class name>.id.
 
         Args:
             obj: The object instance to be added.
@@ -44,8 +41,7 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        """
-        Serializes __objects to the JSON file __file_path.
+        """Serializes __objects to the JSON file __file_path.
         """
         obj_dict = {key: value.to_dict()
                     for key, value in self.__objects.items()}
@@ -53,8 +49,7 @@ class FileStorage:
             json.dump(obj_dict, file)
 
     def reload(self):
-        """
-        Deserializes the JSON file to __objects
+        """Deserializes the JSON file to __objects
         if the JSON file doesn't exist.
         """
         if os.path.exists(self.__file_path):
