@@ -32,7 +32,9 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """Adds new obj to the __objects dictionary with key <obj class name>.id.
+        """
+        Adds new obj to the __objects dictionary with
+        key <obj class name>.id.
 
         Args:
             obj: The object instance to be added.
