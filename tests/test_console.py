@@ -9,4 +9,3 @@ class TestConsole(unittest.TestCase):
     def test_t(self):
         """test"""
         pass
-
